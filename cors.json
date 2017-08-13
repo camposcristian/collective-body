@@ -1,0 +1,7 @@
+[
+  {
+    "origin": ["http://localhost:3000","https://collective-body.firebaseapp.com"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]

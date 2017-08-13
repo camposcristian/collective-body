@@ -1,0 +1,91 @@
+@import '~grommet/scss/hpe/index';
+.grommetux-box.grommetux-box--direction-row.grommetux-box--justify-center.grommetux-box--pad-none.grommetux-carousel__controls {
+  display: none;
+}
+
+svg.grommetux-control-icon.grommetux-control-icon-star.grommetux-control-icon--responsive polygon {
+  fill: #bf6948;
+  stroke: #bf6948;
+}
+
+svg.grommetux-control-icon.grommetux-control-icon-favorite.grommetux-control-icon--responsive path {
+  fill: #bf6948;
+  stroke: #bf6948;
+}
+
+.grommetux-background-color-index--light .grommetux-button,
+.grommetux-background-color-index--dark .grommetux-background-color-index--light .grommetux-button {
+  border-color: transparent;
+}
+
+a.grommetux-box.grommetux-box--direction-column.grommetux-box--responsive.grommetux-box--pad-medium.grommetux-button.grommetux-button--box.grommetux-button--secondary.grommetux-button--plain {
+  border-color: rgba(51, 51, 51, 0.6);
+}
+
+.grommetux-hero:not(.grommetux-hero--stack).grommetux-hero--large {
+  min-height: 800px;
+}
+
+img.grommetux-image.grommetux-image--large.grommetux-image--cover.grommetux-image--full.grommetux-image--align-bottom {
+  min-height: none;
+}
+
+.new-programs {
+  background-color: #127a79;
+}
+
+.no-border-icon span.grommetux-button__icon, {
+  padding: 10px;
+}
+
+button.grommetux-button.grommetux-button--plain.grommetux-carousel__arrow.grommetux-carousel__arrow--next,
+button.grommetux-button.grommetux-button--plain.grommetux-carousel__arrow.grommetux-carousel__arrow--prev {
+  z-index: 10;
+}
+
+// .grommetux-hero:not(.grommetux-hero--stack) .grommetux-hero__background {
+//   z-index: 1;
+// }
+// .grommetux-box--separator-bottom, .grommetux-box--separator-horizontal, .grommetux-box--separator-all{
+//   border: none;
+// }
+.instagram-feed:hover .instagram-box {
+  background-color: white;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.instagram-box {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  z-index: -1;
+}
+
+.instagram-center {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.grommetux-carousel__arrow .grommetux-control-icon polyline {
+  stroke: #bf6948 !important;
+}
+
+.grommetux-carousel__arrow:hover .grommetux-control-icon polyline {
+  stroke: #127a79 !important;
+}
+
+.grommetux-carousel span.grommetux-button__icon {
+  background-color: white;
+  opacity: 0.8;
+}
