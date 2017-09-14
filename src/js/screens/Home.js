@@ -156,7 +156,9 @@ class Home extends Component {
           <CarouselWidget title="the fitness, healthiness, happiness COLLECTIVE"  feed="carousel.1" />
           <FeatureBox feed="feature1"/>
           <CarouselWidget title="the fitness COLLECTIVE" feed="carousel.2" />
+          <FeatureBox feed="feature2"/>
           <CarouselWidget title="the food & fuel COLLECTIVE" feed="carousel.3"/>
+          <FeatureBox feed="feature3"/>
           <CarouselWidget title="the delivered diets COLLECTIVE" feed="carousel.4" />
           <CarouselWidget title="the mindfulness & mentor COLLECTIVE" feed="carousel.5" />
           <InstagramFeed title="Collective Bodies" feed="collectivebody" />
