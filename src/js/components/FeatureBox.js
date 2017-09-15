@@ -23,22 +23,47 @@ import LineChartIcon from 'grommet/components/icons/base/LineChart';
 
 
 import { navActivate } from '../actions/nav';
+import fire from '../actions/firebase';
 
 class FeatureBox extends Component {
 
   _getData() {
-
-    const options = {
-      method: 'GET'
-    }
-    fetch(`/feeds/${this.props.feed}.json`, options)
-      .then(response => response.json())
-      .then(json => {
-        this.setState({
-          data: json
-        });
-      });
+    var feedName = this.props.feed;
+    var promises = [];
+    var items = [];
+    var storageRef = fire.storage().ref(`Keypoints/${this.props.feed}.json`);
+    promises.push(storageRef.getDownloadURL().then(url => {
+      fetch(url, { method: 'GET' })
+        .then(response => response.json())
+        .then(json => {
+          json.map((item, index) => {
+            var storageRef = fire.storage().ref(`Images/Keypoints/${feedName}/${index + 1}.png`);
+            promises.push(storageRef.getDownloadURL().then(url => {
+              item.picture = url;
+              items.push(item);
+            }))
+          })
+          Promise.all(promises).then(() => {
+            this.setState({
+              data: items
+            });
+          });
+        })
+    }));
   }
+
+  // _getData() {
+  //   const options = {
+  //     method: 'GET'
+  //   }
+  //   fetch(`/feeds/${this.props.feed}.json`, options)
+  //     .then(response => response.json())
+  //     .then(json => {
+  //       this.setState({
+  //         data: json
+  //       });
+  //     });
+  // }
 
   componentDidMount() {
     this._getData();
