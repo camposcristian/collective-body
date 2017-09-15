@@ -22,28 +22,68 @@ class MainHeader extends Component {
   constructor() {
     super();
     this._onLogout = this._onLogout.bind(this);
+    this.state = { what: '', when: '', where: '' };
   }
 
   _onLogout(event) {
     const { session } = this.props;
     event.preventDefault();
     this.props.dispatch(logout(session));
+    const title = this.props.title;
+
   }
 
   render() {
+    let search = () => {
+      if (this.props.search) {
+        return (
+          <Box direction='row'
+            justify='center'
+            alignContent="center"
+            flex={true}
+            size="small"
+          >
+            <Select placeHolder='What?'
+              value={this.state.what}
+              options={['Food', 'Fitness', 'Mindfulness', 'Food + Fitness', 'Food + Mindfulness', 'Fitness + Mindfulless', 'Meal Delivery Services', 'Fitness + Food + Mindfullness']}
+              onChange={p => { this.setState({ what: p.option }) }}
+            />
+            <Select placeHolder='Where?'
+              value={this.state.where}
+              options={['Gym', 'Home', 'Pool', 'Track', 'Yacht', 'Rage Room']}
+              onChange={p => { this.setState({ where: p.option }) }}
+            />
+            <Select placeHolder='When?'
+              value={this.state.when}
+              options={['One-off-session', '1 week', '1 month', '8 weeks', '12 weeks', 'Ongoing']}
+              onChange={p => { this.setState({ when: p.option }) }}
+            />
+            <Button icon={<SearchIcon />}
+              href='/category'
+              className="new-programs no-border-icon"
+              primary={true}
+            />
+          </Box>
+        )
+      }
+      else return '';
+    }
     return (
       <Header
         direction='row'
         align="center"
         justify="between"
       >
-        {/* style={{ "backgroundColor": "#127a79" }} */}
         <Box
           align="start"
           margin='small'
           justify='start'>
           <Image size="small" src='/img/logo3.jpg'></Image>
         </Box>
+
+        {search()}
+        {/* style={{ "backgroundColor": "#127a79" }} */}
+
         <Box
           margin='small'
           direction='row'

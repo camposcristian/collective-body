@@ -28,28 +28,40 @@ import fire from '../actions/firebase';
 
 class CarouselWidget extends Component {
 
-  // _getData() {
-  //   var storageRef = fire.storage().ref(`Carousels/${this.props.feed}.json`);
-  //   storageRef.getDownloadURL().then(url => {
-  //     fetch(url, { method: 'GET' })
-  //       .then(response => response.json())
-  //       .then(json => {
-  //         this.setState({
-  //           data: json
-  //         });
-  //       });
-  //   });
-  // }
   _getData() {
-    var url = `feeds/${this.props.feed}.json`;
-    fetch(url, { method: 'GET' })
-      .then(response => response.json())
-      .then(json => {
-        this.setState({
-          data: json
-        });
-      });
+    var feedName = this.props.feed;
+    var promises = [];
+    var items = [];
+    var storageRef = fire.storage().ref(`Carousels/${this.props.feed}.json`);
+    promises.push(storageRef.getDownloadURL().then(url => {
+      fetch(url, { method: 'GET' })
+        .then(response => response.json())
+        .then(json => {
+          json.map((item, index) => {
+            var storageRef = fire.storage().ref(`Images/Carousels/${feedName}/${index + 1}.jpg`);
+            promises.push(storageRef.getDownloadURL().then(url => {
+              item.picture = url;
+              items.push(item);
+            }))
+          })
+          Promise.all(promises).then(() => {
+            this.setState({
+              data: items
+            });
+          });
+        })
+    }));
   }
+  // _getData() {
+  //   var url = `feeds/${this.props.feed}.json`;
+  //   fetch(url, { method: 'GET' })
+  //     .then(response => response.json())
+  //     .then(json => {
+  //       this.setState({
+  //         data: json
+  //       });
+  //     });
+  // }
 
   componentDidMount() {
     this._getData();
@@ -134,7 +146,7 @@ class CarouselWidget extends Component {
       });
     }
     return (
-      <Box pad='medium'>
+      <Box pad='medium' >
         <Heading margin="large">
           {title}
         </Heading>
