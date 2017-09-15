@@ -55,7 +55,8 @@ class FeatureBox extends Component {
           basis="1/3"
           pad="medium"
           >
-            <LineChartIcon size="xlarge"/>
+            {/* <LineChartIcon size="xlarge"/> */}
+            <Image size="small" src={data.picture}></Image>
             <Title margin="small">{data.title} </Title>
             <Markdown content={data.text} />
           </Tile>
