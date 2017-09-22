@@ -31,45 +31,49 @@ class BoxTile extends React.Component {
   render() {
     let post = this.props.item;
     return (
-      <Animate
-        enter={{ animation: 'fade', duration: 1000, delay: 50 }}
-        leave={{ animation: 'fade', duration: 1000, delay: 0 }}
+      <Tile
+        pad="small"
       >
-        <Anchor href='/Detail' style={{ textDecoration: "none" }}>
-          <Image src={post.picture}></Image>
-          <Box
-            direction="column">
-            <Box direction='row'
-              style={{ "height": "80px", "overflow": "hidden" }}
-              pad={{ "horizontal": "small" }}
-              justify="start"
-            >
-              <Headline margin="none" size="small" style={{ fontSize: "26px", marginRight: "10px" }}> {post.description}</Headline>
-              <Box
-                direction="row">
-                <Headline size="small" style={{ "color": "#bf6948", "fontWeight": "bold" }}> {post.price}</Headline>
+        <Animate
+          enter={{ animation: 'fade', duration: 1000, delay: 0 }}
+          leave={{ animation: 'fade', duration: 1000, delay: 0 }}
+        >
+          <Anchor href='/Detail' style={{ textDecoration: "none" }}>
+            <Image src={post.picture}></Image>
+            <Box
+              direction="column">
+              <Box direction='row'
+                style={{ "height": "80px", "overflow": "hidden" }}
+                pad={{ "horizontal": "small" }}
+                justify="start"
+              >
+                <Headline margin="none" size="small" style={{ fontSize: "26px", marginRight: "10px" }}> {post.description}</Headline>
+                <Box
+                  direction="row">
+                  <Headline size="small" style={{ "color": "#bf6948", "fontWeight": "bold" }}> {post.price}</Headline>
+                </Box>
+              </Box>
+              <Box direction='row'
+                pad={{ "horizontal": "small" }}
+                justify="start"
+              >
+                <Heading strong={true} tag="h3" size="small" margin="none"> {post.title}</Heading>
+              </Box>
+              <Box direction='row'
+                pad={{ "horizontal": "small" }}
+                justify="start"
+              >
+                <StarIcon />
+                <StarIcon />
+                <StarIcon />
+                <StarIcon />
+                <StarIcon />
+                <span style={{ marginLeft: "10px" }}>30 reviews</span>
               </Box>
             </Box>
-            <Box direction='row'
-              pad={{ "horizontal": "small" }}
-              justify="start"
-            >
-              <Heading strong={true} tag="h3" size="small" margin="none"> {post.title}</Heading>
-            </Box>
-            <Box direction='row'
-              pad={{ "horizontal": "small" }}
-              justify="start"
-            >
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <span style={{ marginLeft: "10px" }}>30 reviews</span>
-            </Box>
-          </Box>
-        </Anchor>
-      </Animate>
+          </Anchor>
+        </Animate>
+      </Tile>
     );
   }
 }
@@ -88,17 +92,41 @@ class CarouselWidget extends Component {
   handleCarouselClick(direction) {
     let items = this.state.data;
     let position = this.state.position;
-
+    let tiles = this.state.tiles;
     switch (direction) {
       case 'next':
+        tiles.splice(0, 1);
+        if (position < 0) {
+          position = position + 12;
+        }
+        if (position !== 11) {
+          position++;
+          tiles.push(items[position]);
+        }
+        else {
+          tiles.push(items[0]);
+          position = 0;
+        }
         return this.setState({
-          tiles: items.slice(position-2,position+1),
-          position: position + 1
+          tiles: tiles,
+          position: position
         });
       case 'previous':
+        tiles.pop();
+        if (position > 3) {
+          tiles.splice(0, 0, items[position - 4])
+          position--;
+        }
+        else {
+          tiles.splice(0, 0, items[position + 8])
+          if (position === -8) {
+            position = 4;
+          }
+          position--;
+        }
         return this.setState({
-          tiles: items.slice(position-1,position+1),
-          position: position -1
+          tiles: tiles,
+          position: position
         })
     }
   }
@@ -119,9 +147,13 @@ class CarouselWidget extends Component {
             }))
           })
           Promise.all(promises).then(() => {
+            items = items.map((item, index) => {
+              item.title = index;
+              return item;
+            });
             this.setState({
               data: items,
-              tiles: items.slice(0,3),
+              tiles: items.slice(0, 4),
               position: 3,
             });
           });
@@ -154,11 +186,16 @@ class CarouselWidget extends Component {
         <Heading margin="large">
           {title}
         </Heading>
-        <Box pad='large' direction='row' full>
-          <PreviousIcon onClick={this.handleCarouselClick.bind(this, 'previous')} />
-          <Box flex direction='row' justify='center'>
+        <Box >
+          <Tiles
+            direction='row'
+            justify="start"
+            full={true}
+            pad='large'
+            flush={true}>
+            <PreviousIcon onClick={this.handleCarouselClick.bind(this, 'previous')} />
             {
-              this.state.tiles.length!==0?
+              this.state.tiles.length !== 0 ?
                 (
                   this.state.tiles.map((item, index) =>
                     <BoxTile
@@ -168,8 +205,8 @@ class CarouselWidget extends Component {
                   )
                 ) : ""
             }
-          </Box>
-          <NextIcon onClick={this.handleCarouselClick.bind(this, 'next')} />
+            <NextIcon onClick={this.handleCarouselClick.bind(this, 'next')} />
+          </Tiles>
         </Box >
       </Box >
     )
