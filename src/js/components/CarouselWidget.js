@@ -13,11 +13,12 @@ import Card from 'grommet/components/Card';
 import Image from 'grommet/components/Image';
 import Heading from 'grommet/components/Heading';
 import Headline from 'grommet/components/Headline';
+import Animate from 'grommet/components/Animate';
 import Anchor from 'grommet/components/Anchor';
 import Label from 'grommet/components/Label';
-import Logo from 'grommet/components/icons/Grommet';
-import Star from 'grommet/components/icons/base/Star';
-import StarHalf from 'grommet/components/icons/base/StarHalf';
+import PreviousIcon from 'grommet/components/icons/base/Previous';
+import NextIcon from 'grommet/components/icons/base/Next';
+import StarIcon from 'grommet/components/icons/base/Star';
 
 import HighFiveIcon from '../components/HighFiveIcon';
 
@@ -26,8 +27,81 @@ import HighFiveIcon from '../components/HighFiveIcon';
 import { navActivate } from '../actions/nav';
 import fire from '../actions/firebase';
 
-class CarouselWidget extends Component {
+class BoxTile extends React.Component {
+  render() {
+    let post = this.props.item;
+    return (
+      <Animate
+        enter={{ animation: 'fade', duration: 1000, delay: 50 }}
+        leave={{ animation: 'fade', duration: 1000, delay: 0 }}
+      >
+        <Anchor href='/Detail' style={{ textDecoration: "none" }}>
+          <Image src={post.picture}></Image>
+          <Box
+            direction="column">
+            <Box direction='row'
+              style={{ "height": "80px", "overflow": "hidden" }}
+              pad={{ "horizontal": "small" }}
+              justify="start"
+            >
+              <Headline margin="none" size="small" style={{ fontSize: "26px", marginRight: "10px" }}> {post.description}</Headline>
+              <Box
+                direction="row">
+                <Headline size="small" style={{ "color": "#bf6948", "fontWeight": "bold" }}> {post.price}</Headline>
+              </Box>
+            </Box>
+            <Box direction='row'
+              pad={{ "horizontal": "small" }}
+              justify="start"
+            >
+              <Heading strong={true} tag="h3" size="small" margin="none"> {post.title}</Heading>
+            </Box>
+            <Box direction='row'
+              pad={{ "horizontal": "small" }}
+              justify="start"
+            >
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <span style={{ marginLeft: "10px" }}>30 reviews</span>
+            </Box>
+          </Box>
+        </Anchor>
+      </Animate>
+    );
+  }
+}
 
+
+class CarouselWidget extends Component {
+  constructor() {
+    super();
+    this.handleCarouselClick = this.handleCarouselClick.bind(this);
+    this.state = {
+      tiles: [],
+      position: 0
+    };
+  }
+
+  handleCarouselClick(direction) {
+    let items = this.state.data;
+    let position = this.state.position;
+
+    switch (direction) {
+      case 'next':
+        return this.setState({
+          tiles: items.slice(position-2,position+1),
+          position: position + 1
+        });
+      case 'previous':
+        return this.setState({
+          tiles: items.slice(position-1,position+1),
+          position: position -1
+        })
+    }
+  }
   _getData() {
     var feedName = this.props.feed;
     var promises = [];
@@ -46,7 +120,9 @@ class CarouselWidget extends Component {
           })
           Promise.all(promises).then(() => {
             this.setState({
-              data: items
+              data: items,
+              tiles: items.slice(0,3),
+              position: 3,
             });
           });
         })
@@ -71,91 +147,32 @@ class CarouselWidget extends Component {
     const title = this.props.title;
     let canvases = [];
 
-    if (this.state !== null) {
-      var chunks = this.state.data.reduce((ar, it, i) => {
-        const ix = Math.floor(i / 4);
-        if (!ar[ix]) {
-          ar[ix] = [];
-        }
-        ar[ix].push(it);
-        return ar;
-      }, []);
 
-      canvases = chunks.map(function (data, index) {
-        return (
-          data.map(function (post, index) {
-            return (
-              <Tiles key={index}
-                justify="start"
-                flush={true}
-              >
-                <Tile
-                  pad="small"
-                >
-                  <Anchor href='/Detail' style={{ textDecoration: "none" }}>
-                    <Image src={post.picture}></Image>
-                    <Box
-                      direction="column">
-                      <Box direction='row'
-                        style={{ "height": "80px", "overflow": "hidden" }}
-                        pad={{ "horizontal": "small" }}
-                        justify="start"
-                      >
-                        <Headline margin="none" size="small" style={{ fontSize: "26px", marginRight: "10px" }}> {post.description}</Headline>
-                        <Box
-                          direction="row">
-                          <Headline size="small" style={{ "color": "#bf6948", "fontWeight": "bold" }}> {post.price}</Headline>
-                        </Box>
-                      </Box>
-                      <Box direction='row'
-                        pad={{ "horizontal": "small" }}
-                        justify="start"
-                      >
-                        <Heading strong={true} tag="h3" size="small" margin="none"> {post.title}</Heading>
-                      </Box>
-                      <Box direction='row'
-                        pad={{ "horizontal": "small" }}
-                        justify="start"
-                      >
-                        <Star />
-                        <Star />
-                        <Star />
-                        <Star />
-                        <Star />
-                        <span style={{ marginLeft: "10px" }}>30 reviews</span>
-                      </Box>
-                    </Box>
-
-                    {/* <Anchor href='/Detail' style={{ textDecoration: "none" }} >
-                  <Box
-                    direction="column"
-                  >
-                    <Box direction='column'
-
-                    >
-
-                      <Heading tag="h3" size="medium" margin="none"> {post.title} </Heading>
-                    </Box>
-               */}
-                  </Anchor>
-                </Tile >
-              </Tiles >
-            )
-          })
-        )
-      });
-    }
+    // debugger;
     return (
       <Box pad='medium' >
         <Heading margin="large">
           {title}
         </Heading>
-        <Carousel>
-          {canvases}
-        </Carousel>
+        <Box pad='large' direction='row' full>
+          <PreviousIcon onClick={this.handleCarouselClick.bind(this, 'previous')} />
+          <Box flex direction='row' justify='center'>
+            {
+              this.state.tiles.length!==0?
+                (
+                  this.state.tiles.map((item, index) =>
+                    <BoxTile
+                      key={`tile-${index}`}
+                      item={item}
+                    />
+                  )
+                ) : ""
+            }
+          </Box>
+          <NextIcon onClick={this.handleCarouselClick.bind(this, 'next')} />
+        </Box >
       </Box >
-    );
-
+    )
   }
 }
 
