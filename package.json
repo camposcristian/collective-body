@@ -78,8 +78,5 @@
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](dist|templates|node_modules)[/\\\\]"
     ]
-  },
-  "pre-commit": [
-    // "test"
-  ]
+  }
 }
