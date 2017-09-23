@@ -115,3 +115,7 @@ button.grommetux-button.grommetux-button--plain.grommetux-carousel__arrow.gromme
   right:0;
   cursor: pointer;
 }
+
+.grommetux-button--plain:not(.grommetux-button--box){
+  padding: 1px;
+}
