@@ -8,7 +8,7 @@ import store from './store';
 import Main from './components/Main';
 
 // const locale = getCurrentLocale();
-const locale = 'en-US';
+const locale = 'en';
 addLocaleData(en);
 let messages;
 try {

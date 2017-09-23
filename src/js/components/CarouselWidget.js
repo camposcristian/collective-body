@@ -31,19 +31,20 @@ class BoxTile extends React.Component {
   render() {
     let post = this.props.item;
     return (
-      <Tile
-        pad="small"
+      <Animate
+        enter={{ animation: 'fade', duration: 1000, delay: 50 }}
+        leave={{ animation: 'fade', duration: 1000, delay: 0 }}
       >
-        <Animate
-          enter={{ animation: 'fade', duration: 1000, delay: 0 }}
-          leave={{ animation: 'fade', duration: 1000, delay: 0 }}
+        <Box
+          pad="small"
+          //style={{ "display": post.display }}
         >
           <Anchor href='/Detail' style={{ textDecoration: "none" }}>
-            <Image src={post.picture}></Image>
+            <Image className="carousel-image" src={post.picture}></Image>
             <Box
               direction="column">
               <Box direction='row'
-                style={{ "height": "80px", "overflow": "hidden" }}
+                style={{ "height": "105px", "minWidth": "200px", "overflow": "hidden" }}
                 pad={{ "horizontal": "small" }}
                 justify="start"
               >
@@ -72,8 +73,8 @@ class BoxTile extends React.Component {
               </Box>
             </Box>
           </Anchor>
-        </Animate>
-      </Tile>
+        </Box >
+      </Animate>
     );
   }
 }
@@ -84,7 +85,7 @@ class CarouselWidget extends Component {
     super();
     this.handleCarouselClick = this.handleCarouselClick.bind(this);
     this.state = {
-      tiles: [],
+      tiles: [1, 2, 3, 4],
       position: 0
     };
   }
@@ -92,7 +93,7 @@ class CarouselWidget extends Component {
   handleCarouselClick(direction) {
     let items = this.state.data;
     let position = this.state.position;
-    let tiles = this.state.tiles;
+    const { tiles } = this.state;
     switch (direction) {
       case 'next':
         tiles.splice(0, 1);
@@ -107,6 +108,16 @@ class CarouselWidget extends Component {
           tiles.push(items[0]);
           position = 0;
         }
+        // tiles.map((tile, index) => {
+        //   if (index == position - 3) {
+        //     tile.display = "none";
+        //   }
+        //   else if (index == position + 1) {
+        //     tile.display = "block";
+        //   }
+        //   return tile;
+        // })
+        // position++;
         return this.setState({
           tiles: tiles,
           position: position
@@ -125,7 +136,7 @@ class CarouselWidget extends Component {
           position--;
         }
         return this.setState({
-          tiles: tiles,
+          tiles: tiles.map(tile => tile),
           position: position
         })
     }
@@ -147,13 +158,18 @@ class CarouselWidget extends Component {
             }))
           })
           Promise.all(promises).then(() => {
-            items = items.map((item, index) => {
-              item.title = index;
-              return item;
-            });
+            // items = items.map((item, index) => {
+            //   item.title = index;
+            //   return item;
+            // });
             this.setState({
               data: items,
               tiles: items.slice(0, 4),
+              // map((item, index) => {
+              //   (index < 4 ? item.display = "block" : item.display = "none")
+              //   return item;
+              // }
+              // ),
               position: 3,
             });
           });
@@ -186,27 +202,27 @@ class CarouselWidget extends Component {
         <Heading margin="large">
           {title}
         </Heading>
-        <Box >
-          <Tiles
-            direction='row'
-            justify="start"
-            full={true}
-            pad='large'
-            flush={true}>
-            <PreviousIcon onClick={this.handleCarouselClick.bind(this, 'previous')} />
-            {
-              this.state.tiles.length !== 0 ?
-                (
-                  this.state.tiles.map((item, index) =>
-                    <BoxTile
-                      key={`tile-${index}`}
-                      item={item}
-                    />
-                  )
-                ) : ""
-            }
-            <NextIcon onClick={this.handleCarouselClick.bind(this, 'next')} />
-          </Tiles>
+        <Box
+          direction='row'
+          justify="start"
+          full={true}
+          flex
+          style={{ "overflow": "hidden" }}
+          className="carousel-tiles"
+        >
+          <PreviousIcon className="carousel-prev" onClick={this.handleCarouselClick.bind(this, 'previous')} />
+          {
+            this.state.tiles.length !== 0 ?
+              (
+                this.state.tiles.map((item, index) =>
+                  <BoxTile
+                    key={`tile-${index}`}
+                    item={item}
+                  />
+                )
+              ) : ""
+          }
+          <NextIcon className="carousel-next" onClick={this.handleCarouselClick.bind(this, 'next')} />
         </Box >
       </Box >
     )

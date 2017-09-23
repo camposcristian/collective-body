@@ -94,3 +94,24 @@ button.grommetux-button.grommetux-button--plain.grommetux-carousel__arrow.gromme
 .grommetux-button--plain:not(.grommetux-button--focus){
   border: 0px solid transparent;
 }
+
+.carousel-image{
+  height: 180px;
+}
+
+.carousel-tiles{
+  height: 100%;
+}
+
+.carousel-next{
+  position: sticky;
+  top:50%;
+  left:0;
+  cursor: pointer;
+}
+.carousel-prev{
+  position: sticky;
+  top:50%;
+  right:0;
+  cursor: pointer;
+}
