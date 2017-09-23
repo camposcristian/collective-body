@@ -17,6 +17,7 @@ import ListItem from 'grommet/components/ListItem';
 import Button from 'grommet/components/Button';
 import Layer from 'grommet/components/Layer';
 import Hero from 'grommet/components/Hero';
+import Image from 'grommet/components/Image';
 
 
 import CheckmarkIcon from 'grommet/components/icons/base/checkmark';
@@ -40,13 +41,15 @@ class Detail extends Component {
 
     return (
       <Article >
-        <MainHeader></MainHeader>
-        <Hero 
-        background={
-          <Image src='/img/slider-2.jpg'
-            size='large'
-            align={{ "bottom": true }} />
-            }
+        <MainHeader search="true"></MainHeader>
+        <Hero
+          background={
+            <Image src='/img/slider-2.jpg'
+              size='large'
+              fit='cover'
+              full={true}
+              align={{ "bottom": true }} />
+          }
           backgroundColorIndex='dark'
           size='large'>
           <Box direction='row'
@@ -75,12 +78,22 @@ class Detail extends Component {
                 margin={{ "bottom": "large" }}
                 flex={true}
               >
-                <Button 
-                  href='/category'
-                  className="new-programs no-border-icon"
-                  primary={true}
-                  
-                />
+                <Button
+                  box={true}
+                  pad="medium"
+                  margin="small"
+                  full={false}
+                  label='Start Now!'
+                  href='#'
+                  primary={true} />
+                <Button
+                  box={true}
+                  margin="small"
+                  pad="medium"
+                  full={false}
+                  label='Download free content'
+                  href='https://myhealthybalance.com.au/assets/ex-phys-guides/beginner_final_lowres.pdf'
+                  secondary={true} />
               </Box>
             </Box>
           </Box>
