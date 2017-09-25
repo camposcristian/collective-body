@@ -42,6 +42,11 @@ import MainFooter from '../components/MainFooter';
 import MainHeader from '../components/MainHeader';
 import FeatureBox from '../components/FeatureBox';
 
+import Form from 'grommet/components/Form';
+import FormField from 'grommet/components/FormField';
+import FormFields from 'grommet/components/FormFields';
+import CheckBox from 'grommet/components/Checkbox';
+
 // import {
 //   loadDashboard, unloadDashboard
 // } from '../actions/dashboard';
@@ -115,7 +120,46 @@ class Landing extends Component {
                   margin={{ "bottom": "large" }}
                   flex={true}
                 >
-                  Form fields
+                  <Form>
+                    <Paragraph>
+                            Start now!
+                    </Paragraph>
+                    <FormFields>
+                      <fieldset>
+                        <FormField label='First Name'>
+                          <TextInput id='first_name'
+                            name='first_name'/>
+                        </FormField>
+                        <FormField label='Last Name'>
+                          <TextInput id='last_name'
+                            name='last_name' />
+                        </FormField>
+                        <FormField label='Mail'>
+                          <TextInput id='mail'
+                            name='mail'/>
+                        </FormField>
+                        <FormField label='Location'>
+                          <TextInput id='location'
+                            name='location'/>
+                        </FormField>
+                        <FormField>
+                          <CheckBox id='agree'
+                            name='agree'
+                            label='Subscribe to newsletter' />
+                        </FormField>
+                      </fieldset>
+                      <t />
+                    </FormFields>
+                    <Footer className="landing-submit" pad={{"vertical": "medium"}}>
+                      <Box> 
+                        <Button label='Submit'
+                          type='submit'
+                          id='landing_submit'
+                          primary={true}
+                          style={{ color: "white", opacity: 1 }} />
+                      </Box>
+                    </Footer>
+                  </Form>
                 </Box>
               </Box>
             </Box>
