@@ -11,6 +11,7 @@ import { navResponsive } from '../actions/nav';
 import Login from '../screens/Login';
 import Dashboard from '../screens/Dashboard';
 import Home from '../screens/Home';
+import Landing from '../screens/Landing';
 import Tasks from '../screens/Tasks';
 import Task from '../screens/Task';
 import NotFound from '../screens/NotFound';
@@ -49,11 +50,13 @@ class Main extends Component {
             onResponsive={this._onResponsive}>
              {nav} 
             <Switch>
-              <Route exact={true} path='/' component={Home} />
+              {/* <Route exact={true} path='/' component={Home} /> */}
+              <Route exact={true} path='/' component={Landing} />
               <Route path='/dashboard' component={Dashboard} />
               <Route path='/detail' component={Detail} />
               <Route path='/category' component={Category} />
               <Route path='/home' component={Home} />
+              <Route path='/landing' component={Landing} />
               <Route path='/login' component={Login} />
               <Route path='/tasks/:id' component={Task} />
               <Route path='/tasks' component={Tasks} />
