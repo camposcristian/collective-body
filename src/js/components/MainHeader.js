@@ -76,8 +76,9 @@ class MainHeader extends Component {
       >
         <Box
           align="start"
-          margin='small'
-          justify='start'>
+          margin='medium'
+          justify='start'
+        >
           <Image size="small" src='/img/logo3.jpg'></Image>
         </Box>
 
