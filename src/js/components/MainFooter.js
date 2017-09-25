@@ -71,16 +71,16 @@ class MainFooter extends Component {
               align='center'
               textAlign='center'
             >
-              <Anchor label='Terms and Conditions' href='#' />
-              |
-            <Anchor label='Privacy Information' href='#' />
-              |
+              <Anchor label='Terms and Conditions ' href='#' />
+               |
+            <Anchor label='Privacy Information ' href='#' />
+               |
             <Anchor label='Cookie Policy' href='#' />
             </Box>
-            <Image src='/img/logo3.jpg'></Image>
+            <Image src='/img/logo3.jpg' size='small'></Image>
             <Paragraph>
               Copyright © 2017 | All rights reserved
-              </Paragraph>
+            </Paragraph>
           </Box>
         </Box>
       </Footer>
