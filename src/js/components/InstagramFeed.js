@@ -54,7 +54,7 @@ class InstagramFeed extends Component {
         return ar;
       }, []);
 
-      canvases = this.state.data.slice(0, 7).map(function (data, index) {
+      canvases = this.state.data.slice(0, 6).map(function (data, index) {
         return (
           <Anchor key={data.id} href={data.link}>
             <Tile  style={{ position: "relative" }} className="instagram-feed" >
