@@ -45,9 +45,7 @@ class BoxTile extends React.Component {
               direction="column">
               <Box direction='row'
                 style={{ "height": "105px", "minWidth": "200px", "overflow": "hidden" }}
-                pad={{ "horizontal": "small" }}
-                justify="start"
-              >
+                justify="start">
                 <Headline margin="none" size="small" style={{ fontSize: "26px", marginRight: "10px" }}> {post.description}</Headline>
                 <Box
                   direction="row">
@@ -55,13 +53,13 @@ class BoxTile extends React.Component {
                 </Box>
               </Box>
               <Box direction='row'
-                pad={{ "horizontal": "small" }}
+                
                 justify="start"
               >
                 <Heading strong={true} tag="h3" size="small" margin="none"> {post.title}</Heading>
               </Box>
               <Box direction='row'
-                pad={{ "horizontal": "small" }}
+                
                 justify="start"
               >
                 <StarIcon />
