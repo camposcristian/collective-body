@@ -40,8 +40,8 @@ class MainFooter extends Component {
             </Heading>
             <Paragraph margin="small">
             Share your workouts, cook-ups, or our trainers top tips with your squad! 
-            Get your mates, BFF, or SO involved - those who workout together stay together! 
-            #collectivebody #collectivebodylove
+            Get your mates, BFF, or SO involved - those who workout together stay together!
+            <Anchor href="https://www.instagram.com/explore/tags/collectivebody/"> #collectivebody</Anchor> <Anchor href="https://www.instagram.com/explore/tags/collectivebodylove/">#collectivebodylove </Anchor>
             </Paragraph>
              
             
