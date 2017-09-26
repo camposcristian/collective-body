@@ -27,36 +27,50 @@ class MainFooter extends Component {
 
   render() {
     return (
-      <Footer justify='center' direction="column">
-        <Columns maxCount={2} justify="center" size="large">
+      <Footer direction="column" pad="medium">
+        <Columns maxCount={2} justify="start" size="large">
           <Box
-            align="center"
-            justify="center"
+            align="start"
+            justify="start"
           >
-            <Heading>
-              Share the love
-             </Heading>
+            <Heading tag="h2"
+              align="start"
+            > 
+              Get social! Share the collective body love
+            </Heading>
+            <Paragraph margin="small">
+            Share your workouts, cook-ups, or our trainers top tips with your squad! 
+            Get your mates, BFF, or SO involved - those who workout together stay together! 
+            #collectivebody #collectivebodylove
+            </Paragraph>
+             
+            
             <Box direction='row'
               justify='center'
               align="center"
             >
               <SocialShare type='facebook'
-                link='#' />
+                link='https://collective-body.firebaseapp.com/' />
               <SocialShare type='twitter'
-                link='#' />
+                link='https://collective-body.firebaseapp.com/' />
               <SocialShare type='google'
-                link='#' />
+                link='https://collective-body.firebaseapp.com/' />
             </Box>
           </Box>
           <Box
             flex={true}
-            align="center"
-            justify="center"
+            align="end"
+            justify="end"
           >
-            <Heading>
-              Find the love
+            <Heading tag='h2' align='end'>
+              Open your mind and inbox to the collective body love
             </Heading>
-            <TextInput id='item1'
+            <Paragraph margin='small' align="end">
+              We will only send you game changing info! We will never share your details or spam you, promise!
+            </Paragraph>
+            
+            <TextInput label='Mail'
+              id='item1'
               name='item-1'
               value='' />
           </Box>
@@ -65,17 +79,22 @@ class MainFooter extends Component {
           direction="column"
           >
           <Box align='center'
-            pad="medium">
+            pad="none">
             <Box
               direction="row"
               align='center'
               textAlign='center'
             >
-              <Anchor label='Terms and Conditions ' href='#' />
-               |
-            <Anchor label='Privacy Information ' href='#' />
-               |
-            <Anchor label='Cookie Policy' href='#' />
+              <Anchor label='Terms and Conditions' href='#' />
+              <Box margin="small">
+              <Paragraph>|</Paragraph>
+              </Box>
+              
+              <Anchor label='Privacy Information' href='#' />
+              <Box margin="small">
+              <Paragraph>|</Paragraph>
+              </Box>
+              <Anchor  label=' Cookie Policy' href='#' />
             </Box>
             <Image src='/img/logo3.jpg' size='small'></Image>
             <Paragraph>
