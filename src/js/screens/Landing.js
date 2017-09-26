@@ -121,9 +121,9 @@ class Landing extends Component {
                   flex={true}
                 >
                   <Form>
-                    <Paragraph>
-                            Start now!
-                    </Paragraph>
+                    <Heading tag="h4" size="small">
+                      Open your mind and inbox to the collective body love
+                    </Heading>
                     <FormFields>
                       <fieldset>
                         <FormField label='First Name'>
