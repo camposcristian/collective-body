@@ -80,7 +80,8 @@ class Home extends Component {
         {/* <Header> */}
         <MainHeader></MainHeader>
         <Section>
-          <Hero background={
+          <Hero backgroundColorIndex='dark'
+            size='large' background={
             <Carousel>
               <Image src='/img/slider.jpeg'
                 size='large'
@@ -100,9 +101,7 @@ class Home extends Component {
                 <source src='https://thefitnessplayground.com.au/wp-content/themes/wptheme/_assets/video/circusfit.mp4'
                   type='video/mp4' />
               </Video>
-            </Carousel>}
-            backgroundColorIndex='dark'
-            size='large'>
+            </Carousel>}>
             <Box direction='row'
               justify="center"
             >
