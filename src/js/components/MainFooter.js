@@ -41,11 +41,11 @@ class MainFooter extends Component {
               align="center"
             >
               <SocialShare type='facebook'
-                link='https://grommet.io' />
+                link='#' />
               <SocialShare type='twitter'
-                link='https://grommet.io' />
+                link='#' />
               <SocialShare type='google'
-                link='https://grommet.io' />
+                link='#' />
             </Box>
           </Box>
           <Box
