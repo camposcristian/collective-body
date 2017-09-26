@@ -78,6 +78,10 @@ class Landing extends Component {
     )));
   }
 
+  onSubmitLandingForm() {
+    
+  }
+
   render() {
 
     return (
@@ -120,7 +124,7 @@ class Landing extends Component {
                   margin={{ "bottom": "large" }}
                   flex={true}
                 >
-                  <Form>
+                  <Form onSubmit=''>
                     <Heading tag="h4" size="small">
                       Open your mind and inbox to the collective body love
                     </Heading>
