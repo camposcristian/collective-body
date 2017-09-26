@@ -87,13 +87,14 @@ class Detail extends Component {
                   href='#'
                   primary={true} />
                 <Button
+                  className="download_button"
                   box={true}
                   margin="small"
                   pad="medium"
                   full={false}
                   label='Download free content'
                   href='https://myhealthybalance.com.au/assets/ex-phys-guides/beginner_final_lowres.pdf'
-                  secondary={true} />
+                  secondary={true}/>
               </Box>
             </Box>
           </Box>
