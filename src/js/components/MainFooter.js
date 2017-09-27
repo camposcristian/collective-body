@@ -27,7 +27,7 @@ class MainFooter extends Component {
 
   render() {
     return (
-      <Footer direction="column" pad="medium">
+      <Footer direction="column" pad="medium" className="footer-background">
         <Columns maxCount={2} justify="start" size="large">
           <Box
             align="start"
@@ -41,7 +41,7 @@ class MainFooter extends Component {
             <Paragraph margin="small">
             Share your workouts, cook-ups, or our trainers top tips with your squad! 
             Get your mates, BFF, or SO involved - those who workout together stay together!
-            <Anchor href="https://www.instagram.com/explore/tags/collectivebody/"> #collectivebody</Anchor> <Anchor href="https://www.instagram.com/explore/tags/collectivebodylove/">#collectivebodylove </Anchor>
+            <Anchor target="_blank" href="https://www.instagram.com/explore/tags/collectivebody/"> #collectivebody</Anchor> <Anchor target="_blank" href="https://www.instagram.com/explore/tags/collectivebodylove/">#collectivebodylove </Anchor>
             </Paragraph>
              
             
