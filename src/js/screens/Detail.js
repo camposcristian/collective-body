@@ -99,11 +99,20 @@ class Detail extends Component {
             </Box>
           </Box>
         </Hero>
-        <Heading
-          align="center"
-        >
-          Program Features
+          <Box pad='medium' >
+          <Heading align="center" margin="small">
+            How it works
           </Heading>
+          <Box
+            direction='row'
+            justify="start"
+            full={true}
+            flex
+            style={{ "overflow": "hidden" }}
+            className="carousel-tiles"
+          >
+          </Box >
+        </Box >
         <Box
           direction="row"
           justify="center"
@@ -186,6 +195,7 @@ class Detail extends Component {
             href='#'
             primary={true} />
           <Button
+            className="download_button"
             box={true}
             margin="small"
             pad="medium"
