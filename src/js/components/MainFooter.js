@@ -28,7 +28,7 @@ class MainFooter extends Component {
   render() {
     return (
       <Footer direction="column" pad="medium" className="footer-background">
-        <Columns maxCount={2} justify="start" size="large">
+        <Columns maxCount={2} justify="start" size="large" style={{color:"white"}}>
           <Box
             align="start"
             justify="start"
@@ -38,7 +38,7 @@ class MainFooter extends Component {
             > 
               Get social! Share the collective body love
             </Heading>
-            <Paragraph margin="small">
+            <Paragraph margin="small" style={{color:"white"}}>
             Share your workouts, cook-ups, or our trainers top tips with your squad! 
             Get your mates, BFF, or SO involved - those who workout together stay together!
             <Anchor target="_blank" href="https://www.instagram.com/explore/tags/collectivebody/"> #collectivebody</Anchor> <Anchor target="_blank" href="https://www.instagram.com/explore/tags/collectivebodylove/">#collectivebodylove </Anchor>
@@ -65,7 +65,7 @@ class MainFooter extends Component {
             <Heading tag='h2' align='end'>
               Open your mind and inbox to the collective body love
             </Heading>
-            <Paragraph margin='small' align="end">
+            <Paragraph margin='small' align="end" style={{color:"white"}}>
               We will only send you game changing info! We will never share your details or spam you, promise!
             </Paragraph>
             
