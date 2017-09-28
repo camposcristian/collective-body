@@ -131,26 +131,26 @@ class Landing extends Component {
                     <FormFields>
                       <fieldset>
                         <FormField label='First Name'>
-                          <TextInput id='first_name'
+                          <TextInput required id='first_name'
                             name='first_name' type="text" placeHolder="What's your name?"/>
                         </FormField>
-                        <FormField label='Last Name'>
-                          <TextInput id='last_name'
+                        <FormField required label='Last Name'>
+                          <TextInput required id='last_name'
                             name='last_name' 
                             type="text" />
                         </FormField>
                         <FormField label='Email'>
-                          <TextInput id='email_landing'
+                          <TextInput required id='email_landing'
                             name='email_landing' 
                             type="email"/>
                         </FormField>
                         <FormField label='Location'>
-                          <TextInput id='location'
+                          <TextInput required id='location'
                             name='location' 
                             type="text"/>
                         </FormField>
                         <FormField>
-                          <CheckBox id='agree'
+                          <CheckBox required id='agree'
                             name='agree'
                             label='Subscribe to newsletter' />
                         </FormField>
