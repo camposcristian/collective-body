@@ -11,6 +11,9 @@ import Heading from 'grommet/components/Heading';
 import SocialShare from 'grommet/components/SocialShare';
 import TextInput from 'grommet/components/TextInput';
 
+import Form from 'grommet/components/Form';
+import FormField from 'grommet/components/FormField';
+import FormFields from 'grommet/components/FormFields';
 
 class MainFooter extends Component {
 
@@ -68,15 +71,26 @@ class MainFooter extends Component {
             <Paragraph margin='small' align="end" style={{color:"white"}}>
               We will only send you game changing info! We will never share your details or spam you, promise!
             </Paragraph>
-            
-            <TextInput label='Mail'
-              id='item1'
-              name='item-1'
-              value='' />
+            <Form onSubmit=''>
+              <FormFields>
+                <fieldset>
+                  <FormField style={{border: "1px solid white", background:"transparent"}}>
+                  <TextInput className="email_footer" label='Email'
+                    placeHolder="example@collectivebody.com"
+                    id='email_footer'
+                    name='email_footer'
+                    type="email"
+                    />
+                  </FormField>
+                </fieldset>
+                <t />
+              </FormFields>
+            </Form>
           </Box>
         </Columns>
         <Box
           direction="column"
+          style={{color:"white"}}
           >
           <Box align='center'
             pad="none">
@@ -87,17 +101,17 @@ class MainFooter extends Component {
             >
               <Anchor label='Terms and Conditions' href='#' />
               <Box margin="small">
-              <Paragraph>|</Paragraph>
+              <Paragraph style={{color:"white"}}>|</Paragraph>
               </Box>
               
               <Anchor label='Privacy Information' href='#' />
               <Box margin="small">
-              <Paragraph>|</Paragraph>
+              <Paragraph style={{color:"white"}}>|</Paragraph>
               </Box>
               <Anchor  label=' Cookie Policy' href='#' />
             </Box>
             <Image src='/img/logo.png' size='small'></Image>
-            <Paragraph>
+            <Paragraph style={{color:"white"}}>
               Copyright © 2017 | All rights reserved
             </Paragraph>
           </Box>
