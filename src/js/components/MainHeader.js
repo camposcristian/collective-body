@@ -82,7 +82,7 @@ class MainHeader extends Component {
           justify='start'
         >
           <Anchor href="/home">
-            <Image size="small" src='/img/logo3.jpg' href="/home"></Image>
+            <Image size="small" src='/img/logo.png' href="/home"></Image>
           </Anchor>
         </Box>
 
