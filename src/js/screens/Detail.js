@@ -108,8 +108,14 @@ class Detail extends Component {
           </Box>
           <FeatureBox feed="supplier-keypoint.1"/>
         </Section>
-        <Section>
-          <CarouselWidget title="Food"  feed="food-carousel"/>
+        <Section className="bkd-bronze">
+          <CarouselWidget title="Food. Images"  feed="food-carousel"/>
+        </Section>
+        <Section className="bkd-teales">
+          <CarouselWidget title="Fit.Videos"  feed="food-carousel"/>
+        </Section>
+        <Section className="bkd-light-blue">
+          <CarouselWidget title="Testimonies. Audios"  feed="food-carousel"/>
         </Section>
         {/* <CarouselWidget title="Workout"  feed="carousel.1" /> */}
         {/* <CarouselWidget title="Testimonies"  feed="carousel.1" /> */}
