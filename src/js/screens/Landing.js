@@ -140,8 +140,8 @@ class Landing extends Component {
                             type="text" />
                         </FormField>
                         <FormField label='Email'>
-                          <TextInput id='email'
-                            name='email' 
+                          <TextInput id='email_landing'
+                            name='email_landing' 
                             type="email"/>
                         </FormField>
                         <FormField label='Location'>
