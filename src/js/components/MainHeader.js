@@ -17,6 +17,8 @@ import SearchIcon from 'grommet/components/icons/base/Search';
 import Halt from 'grommet/components/icons/base/Halt';
 import FavoriteIcon from 'grommet/components/icons/base/Favorite';
 
+import Anchor from 'grommet/components/Anchor';
+
 class MainHeader extends Component {
 
   constructor() {
@@ -79,7 +81,9 @@ class MainHeader extends Component {
           margin='medium'
           justify='start'
         >
-          <Image size="small" src='/img/logo3.jpg'></Image>
+          <Anchor href="/home">
+            <Image size="small" src='/img/logo3.jpg' href="/home"></Image>
+          </Anchor>
         </Box>
 
         {search()}
