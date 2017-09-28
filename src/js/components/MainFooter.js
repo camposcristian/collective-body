@@ -96,7 +96,7 @@ class MainFooter extends Component {
               </Box>
               <Anchor  label=' Cookie Policy' href='#' />
             </Box>
-            <Image src='/img/logo3.jpg' size='small'></Image>
+            <Image src='/img/logo.png' size='small'></Image>
             <Paragraph>
               Copyright © 2017 | All rights reserved
             </Paragraph>
