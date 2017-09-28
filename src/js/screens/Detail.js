@@ -18,7 +18,8 @@ import Button from 'grommet/components/Button';
 import Layer from 'grommet/components/Layer';
 import Hero from 'grommet/components/Hero';
 import Image from 'grommet/components/Image';
-
+import CarouselWidget from '../components/SupplierCarousel';
+import FeatureBox from '../components/SupplierFutureBox';
 
 import CheckmarkIcon from 'grommet/components/icons/base/checkmark';
 
@@ -40,7 +41,7 @@ class Detail extends Component {
   render() {
 
     return (
-      <Article >
+      <Article>
         <MainHeader search="true"></MainHeader>
         <Hero
           background={
@@ -99,116 +100,21 @@ class Detail extends Component {
             </Box>
           </Box>
         </Hero>
-          <Box pad='medium' >
-          <Heading align="center" margin="small">
-            How it works
-          </Heading>
-          <Box
-            direction='row'
-            justify="start"
-            full={true}
-            flex
-            style={{ "overflow": "hidden" }}
-            className="carousel-tiles"
-          >
-          </Box >
-        </Box >
-        <Box
-          direction="row"
-          justify="center"
-          textAlign="center"
-          margin={{ bottom: "large" }}
-        >
-          <Box
-            margin={{ horizontal: "large" }}
-            pad={{ horizontal: "large" }}
-          >
-            <List>
-              <ListItem separator="none" pad="none" align="center">
-                <CheckmarkIcon></CheckmarkIcon>
-                <Box margin={{ horizontal: "medium", vertical: "small" }} tag="h4">
-                  Feature 1
-              </Box>
-              </ListItem>
-              <ListItem separator="none" pad="none" align="center">
-                <CheckmarkIcon></CheckmarkIcon>
-                <Box tag="h4" margin={{ horizontal: "medium", vertical: "small" }}>
-                  Feature 2
-              </Box>
-              </ListItem>
-              <ListItem separator="none" pad="none" align="center">
-                <CheckmarkIcon></CheckmarkIcon>
-                <Box tag="h4" margin={{ horizontal: "medium", vertical: "small" }}>
-                  Feature 3
-              </Box>
-              </ListItem>
-              <ListItem separator="none" pad="none" align="center">
-                <CheckmarkIcon></CheckmarkIcon>
-                <Box tag="h4" margin={{ horizontal: "medium", vertical: "small" }}>
-                  Feature 4
-              </Box>
-              </ListItem>
-            </List>
+        <Section className="bkd-nude">
+          <Box>
+            <Heading align="center" margin="small">
+              How it works
+            </Heading>  
           </Box>
-          <Box
-            margin={{ horizontal: "large" }}
-            pad={{ horizontal: "large" }}
-          >
-            <List>
-              <ListItem separator="none" pad="none" align="center">
-                <CheckmarkIcon></CheckmarkIcon>
-                <Box margin={{ horizontal: "medium", vertical: "small" }} tag="h4">
-                  Feature 1
-              </Box>
-              </ListItem>
-              <ListItem separator="none" pad="none" align="center">
-                <CheckmarkIcon></CheckmarkIcon>
-                <Box tag="h4" margin={{ horizontal: "medium", vertical: "small" }}>
-                  Feature 2
-              </Box>
-              </ListItem>
-              <ListItem separator="none" pad="none" align="center">
-                <CheckmarkIcon></CheckmarkIcon>
-                <Box tag="h4" margin={{ horizontal: "medium", vertical: "small" }}>
-                  Feature 3
-              </Box>
-              </ListItem>
-              <ListItem separator="none" pad="none" align="center">
-                <CheckmarkIcon></CheckmarkIcon>
-                <Box tag="h4" margin={{ horizontal: "medium", vertical: "small" }}>
-                  Feature 4
-              </Box>
-              </ListItem>
-            </List>
-          </Box>
-        </Box>
-        <Box
-          direction="row"
-          alignSelf="center"
-        >
-          <Button
-            box={true}
-            pad="medium"
-            margin="small"
-            full={false}
-            label='Start Now!'
-            href='#'
-            primary={true} />
-          <Button
-            className="download_button"
-            box={true}
-            margin="small"
-            pad="medium"
-            full={false}
-            label='Download free content'
-            href='https://myhealthybalance.com.au/assets/ex-phys-guides/beginner_final_lowres.pdf'
-            secondary={true} />
-          {/* <Layer closer={true}>
-            <SignUpForm />
-          </Layer> */}
-        </Box>
+          <FeatureBox feed="supplier-keypoint.1"/>
+        </Section>
+        <Section>
+          <CarouselWidget title="Food"  feed="food-carousel"/>
+        </Section>
+        {/* <CarouselWidget title="Workout"  feed="carousel.1" /> */}
+        {/* <CarouselWidget title="Testimonies"  feed="carousel.1" /> */}
         <MainFooter></MainFooter>
-      </Article >
+      </Article>
     );
   }
 }
