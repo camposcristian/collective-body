@@ -30,24 +30,24 @@ class MainFooter extends Component {
 
   render() {
     return (
-      <Footer direction="column" pad="medium" className="footer-background">
-        <Columns maxCount={2} justify="start" size="large" style={{color:"white"}}>
+      <Footer direction="column" pad="" className="footer-background">
+        <Box direction="column" style={{color:"white"}}>
           <Box
-            align="start"
-            justify="start"
+            align="center"
+            justify="center"
+            pad="small"
           >
             <Heading tag="h2"
-              align="start"
+              align="center"
             > 
-              Get social! Share the collective body love
+              Get social! Share the collective body love...
             </Heading>
-            <Paragraph margin="small" style={{color:"white"}}>
-            Share your workouts, cook-ups, or our trainers top tips with your squad! 
-            Get your mates, BFF, or SO involved - those who workout together stay together!
-            <Anchor target="_blank" href="https://www.instagram.com/explore/tags/collectivebody/"> #collectivebody</Anchor> <Anchor target="_blank" href="https://www.instagram.com/explore/tags/collectivebodylove/">#collectivebodylove </Anchor>
+            <Paragraph margin="small" 
+              style={{color:"white"}}>
+              Share your workouts, cook-ups, or our trainers top tips with your squad! 
+              Get your mates, BFF, or SO involved - those who workout together stay together!
+              <Anchor target="_blank" href="https://www.instagram.com/explore/tags/collectivebody/"> #collectivebody</Anchor> <Anchor target="_blank" href="https://www.instagram.com/explore/tags/collectivebodylove/">#collectivebodylove </Anchor>
             </Paragraph>
-             
-            
             <Box direction='row'
               justify='center'
               align="center"
@@ -62,16 +62,17 @@ class MainFooter extends Component {
           </Box>
           <Box
             flex={true}
-            align="end"
-            justify="end"
+            align="center"
+            justify="center"
+            pad="small"
           >
-            <Heading tag='h2' align='end'>
-              Open your mind and inbox to the collective body love
+            <Heading tag='h2' align="center">
+              Open your mind (and inbox) to the collective body love...
             </Heading>
-            <Paragraph margin='small' align="end" style={{color:"white"}}>
+            <Paragraph margin='small' align="center" style={{color:"white"}}>
               We will only send you game changing info! We will never share your details or spam you, promise!
             </Paragraph>
-            <Form onSubmit=''>
+            <Form>
               <FormFields>
                 <fieldset>
                   <FormField style={{border: "1px solid white", background:"transparent"}}>
@@ -87,10 +88,11 @@ class MainFooter extends Component {
               </FormFields>
             </Form>
           </Box>
-        </Columns>
+        </Box>
         <Box
+          full="horizontal"
+          colorIndex="light-1"
           direction="column"
-          style={{color:"white"}}
           >
           <Box align='center'
             pad="none">
@@ -101,12 +103,12 @@ class MainFooter extends Component {
             >
               <Anchor label='Terms and Conditions' href='/terms' />
               <Box margin="small">
-              <Paragraph style={{color:"white"}}>|</Paragraph>
+              <Paragraph>|</Paragraph>
               </Box>
               
               <Anchor label='Privacy Information' href='#' />
               <Box margin="small">
-              <Paragraph style={{color:"white"}}>|</Paragraph>
+              <Paragraph>|</Paragraph>
               </Box>
               <Anchor  label=' Cookie Policy' href='#' />
             </Box>
