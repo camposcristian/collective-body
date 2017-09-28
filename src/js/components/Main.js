@@ -12,6 +12,7 @@ import Login from '../screens/Login';
 import Dashboard from '../screens/Dashboard';
 import Home from '../screens/Home';
 import Landing from '../screens/Landing';
+import Terms from '../screens/Terms';
 import Tasks from '../screens/Tasks';
 import Task from '../screens/Task';
 import NotFound from '../screens/NotFound';
@@ -57,6 +58,7 @@ class Main extends Component {
               <Route path='/category' component={Category} />
               <Route path='/home' component={Home} />
               <Route path='/landing' component={Landing} />
+              <Route path='/terms' component={Terms} />
               <Route path='/login' component={Login} />
               <Route path='/tasks/:id' component={Task} />
               <Route path='/tasks' component={Tasks} />

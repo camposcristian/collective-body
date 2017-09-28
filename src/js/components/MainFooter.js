@@ -99,7 +99,7 @@ class MainFooter extends Component {
               align='center'
               textAlign='center'
             >
-              <Anchor label='Terms and Conditions' href='#' />
+              <Anchor label='Terms and Conditions' href='/terms' />
               <Box margin="small">
               <Paragraph style={{color:"white"}}>|</Paragraph>
               </Box>
