@@ -124,9 +124,9 @@ class Landing extends Component {
                   margin={{ "bottom": "large" }}
                   flex={true}
                 >
-                  <Form onSubmit=''>
+                  <Form>
                     <Heading tag="h4" size="small">
-                      Open your mind and inbox to the collective body love
+                      Open your mind and inbox to the collective body love...
                     </Heading>
                     <FormFields>
                       <fieldset>
