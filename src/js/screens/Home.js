@@ -152,14 +152,22 @@ class Home extends Component {
               </Box>
             </Box>
           </Hero>
-          <CarouselWidget title="the fitness, healthiness, happiness COLLECTIVE"  feed="carousel.1" />
-          <FeatureBox feed="keypoint.1"/>
-          <CarouselWidget title="the fitness COLLECTIVE" feed="carousel.2" />
-          <FeatureBox feed="keypoint.2"/>
-          <CarouselWidget title="the food & fuel COLLECTIVE" feed="carousel.3"/>
+          <Section className="bkd-nude">
+            <CarouselWidget title="the fitness, healthiness, happiness COLLECTIVE"  feed="carousel.1" />
+            <FeatureBox feed="keypoint.1"/>
+          </Section>
+          <Section className="bkd-bronze">
+            <CarouselWidget title="the fitness COLLECTIVE" feed="carousel.2" />
+            <FeatureBox feed="keypoint.2"/>
+          </Section>
+          <Section className="bkd-light-blue">
+            <CarouselWidget title="the food & fuel COLLECTIVE" feed="carousel.3"/>
+          </Section>
           {/* keypoint.3 for future */}
           {/* <FeatureBox feed="keypoint.3"/> */}
-          <CarouselWidget title="the delivered diets COLLECTIVE" feed="carousel.4" />
+          <Section className="bkd-teales">
+            <CarouselWidget title="the delivered diets COLLECTIVE" feed="carousel.4" />
+          </Section>
           {/* <CarouselWidget title="the mindfulness & mentor COLLECTIVE" feed="carousel.5" /> */}
           <InstagramFeed title="Collective Bodies" feed="collectivebody" />
           <InstagramFeed title="Collective Body-love..." feed="collectivebodylove" />
