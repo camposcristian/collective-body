@@ -345,7 +345,7 @@ class Category extends Component {
                   <CheckBox id=''
                     name=''
                     label='Cardio Dance'/>
-                  <Heading tag='h4'>Prenatal</Heading>  
+                  {/* <Heading tag='h4'>Prenatal</Heading>   */}
                   <Heading tag='h4'>Pilates</Heading>  
                   <CheckBox id=''
                     name=''
