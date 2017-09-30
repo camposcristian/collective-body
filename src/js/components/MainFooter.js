@@ -53,11 +53,17 @@ class MainFooter extends Component {
               align="center"
             >
               <SocialShare type='facebook'
-                link='https://collective-body.firebaseapp.com/' />
+                link='https://collective-body.firebaseapp.com/'
+                className="social-icons"  
+              />
               <SocialShare type='twitter'
-                link='https://collective-body.firebaseapp.com/' />
+                link='https://collective-body.firebaseapp.com/'
+                className="social-icons"
+              />
               <SocialShare type='google'
-                link='https://collective-body.firebaseapp.com/' />
+                link='https://collective-body.firebaseapp.com/'
+                className="social-icons"
+              />
             </Box>
           </Box>
           <Box
