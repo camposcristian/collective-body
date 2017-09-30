@@ -73,7 +73,7 @@ class MainFooter extends Component {
             pad="small"
           >
             <Heading tag='h2' align="center">
-              Open your mind (and inbox) to the collective body love...
+              Open your mind (and inbox) to the Collective Body Love...
             </Heading>
             <Paragraph margin='small' align="center" style={{color:"white"}}>
               We will only send you game changing info! We will never share your details or spam you, promise!
